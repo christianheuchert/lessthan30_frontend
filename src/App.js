@@ -10,6 +10,10 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import Welcome from './components/auth/Homepage'
+import MyPoems from './components/Poems/MyPoems'
+import CreatePoem from './components/Poems/CreatePoem'
+import OnePoem from './components/Poems/OnePoem'
 
 class App extends Component {
   constructor (props) {
@@ -86,6 +90,34 @@ class App extends Component {
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
           />
+          <Route
+            exact path='/'
+            render={() => (
+              <Welcome/>
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact path='/poems'
+            render={() => (
+              <MyPoems msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact path='/poems/create'
+            render={() => (
+              <CreatePoem msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/poem/:id'
+            render={() => (
+              <OnePoem msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+
         </main>
       </Fragment>
     )
