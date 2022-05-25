@@ -11,8 +11,7 @@ const Welcome = () => (
       <br></br>
       <h3>Wecome to &#60;30 </h3>
       <br></br>
-      <h5>Sign Up To Use &#60;30</h5>
-
+      {/* <h5>Sign Up To Use &#60;30</h5> */}
       {/* <h6>Once Signed in: </h6>
       <p>Click on Home to See everyone&apos;s posts</p>
       <p>The Profile Tab show just your posts</p>

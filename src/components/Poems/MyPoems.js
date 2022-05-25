@@ -57,7 +57,7 @@ render () {
   return (
     <>
       <h1>My Poems</h1>
-      <ul>{poemJSX}</ul>
+      <div>{poemJSX}</div>
 
     </>
   )

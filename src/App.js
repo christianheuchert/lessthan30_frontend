@@ -14,6 +14,7 @@ import Welcome from './components/auth/Homepage'
 import MyPoems from './components/Poems/MyPoems'
 import CreatePoem from './components/Poems/CreatePoem'
 import OnePoem from './components/Poems/OnePoem'
+import WordPanel from './components/Poems/WordPanel'
 
 class App extends Component {
   constructor (props) {
@@ -115,6 +116,13 @@ class App extends Component {
             path='/poem/:id'
             render={() => (
               <OnePoem msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/wordlist'
+            render={() => (
+              <WordPanel msgAlert={this.msgAlert} user={user} />
             )}
           />
 

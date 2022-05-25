@@ -51,8 +51,18 @@ export const createWord = (data, id, user) => {
     method: 'POST',
     url: apiUrl + '/poems/' + id + '/words/',
     data: {
-      poem: data
+      word: data
     },
+    headers: {
+      Authorization: `Token ${user.token}`
+    }
+  })
+}
+
+export const getWordList = ( user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/wordlist/',
     headers: {
       Authorization: `Token ${user.token}`
     }
