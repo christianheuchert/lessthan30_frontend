@@ -121,7 +121,7 @@ render () {
   } else {
       poemJSX = words.map((word, index) => (
           <div className="word" key={index}>
-            <span>{word.word}</span>
+            <h5>{word.word}</h5>
             <Button onClick={() => this.deleteWordButton(word.id, index)} className="delete-button">X</Button>
           </div>
       ))
@@ -130,13 +130,13 @@ render () {
   return (
     <>
     <h3>Viewing Poem:</h3>
-    <Button onClick={this.deletePoemButton}>Delete</Button>
-    <Button onClick={() => history.push(`/updatepoem/${match.params.id}/`)}>Update</Button>
-      <div class="font-link">
-        <h4>{this.state.title}</h4>
-        <ul>
-          <ul>{poemJSX}</ul>
-        </ul>
+      <div>
+        <div className="poem-header">
+            <h4 class="font-link">{this.state.title}</h4>
+            <Button onClick={() => history.push(`/updatepoem/${match.params.id}/`)}>Update</Button>
+            <Button onClick={this.deletePoemButton}>Delete</Button>
+        </div>
+        <div className="poem font-link">{poemJSX}</div>
         <WordPanel user={user} msgAlert={msgAlert} poemid={this.state.id} handler={this.handler} getPoemWords={this.getPoemWords}/>
       </div>
     </>

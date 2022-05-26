@@ -5,17 +5,20 @@
 }
 
 .word {
-    max-width: 200px;
+    max-width: 300px;
+    margin: 15px;
 }
 .delete-button {
     display: none;
 }
 .word:hover {
     background-color: yellow;
-    display: inline;
+    display: flex;
 
     .delete-button {
         display: inline;
+        background-color: lightcoral;
+        border: lightcoral;
         width: 20px;
         height: 20px;
         padding: 0;
@@ -24,7 +27,7 @@
     }
 }
 .word-panel:hover {
-    max-width: 200px;
+    max-width: 500px;
     background-color: greenyellow;
 }
 
@@ -35,4 +38,28 @@
 
 #user {
     color: black;
+}
+
+.poem {
+    background-image: url("notebook.jpg");
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-content: flex-start;
+}
+
+.poem-header {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    h4, Button{
+        margin-right: 10px;
+    }
+    Button {
+        background-color: lightcoral;
+        border: lightcoral;
+    }
 }

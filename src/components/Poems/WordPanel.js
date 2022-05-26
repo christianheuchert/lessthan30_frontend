@@ -9,7 +9,8 @@ const panel = {
   width: '200px',
   height: '970px',
   border: '1px solid #000',
-  padding: '2px'
+  padding: '2px',
+  borderRadius: '6px'
 }
 // const position = {
 //     position: 'absolute',
@@ -59,11 +60,6 @@ class WordPanel extends Component {
         console.log(poemid)
         createWord(data, poemid, user)
         .then((res) => this.props.handler(res.data.word))
-        // .then((res) => this.setState({
-        // title: res.data.poem.title,
-        // id: res.data.poem.id,
-        // owner: res.data.poem.owner
-        // }))
         .then(() => {
         msgAlert({
           heading: 'Word Added to Poem',
