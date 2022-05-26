@@ -57,7 +57,6 @@ class WordPanel extends Component {
             xcoordinate: 0, 
             ycoordinate: 0
         }
-        console.log(poemid)
         createWord(data, poemid, user)
         .then((res) => this.props.handler(res.data.word))
         .then(() => {

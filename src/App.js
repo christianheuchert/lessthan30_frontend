@@ -16,6 +16,7 @@ import CreatePoem from './components/Poems/CreatePoem'
 import OnePoem from './components/Poems/OnePoem'
 import WordPanel from './components/Poems/WordPanel'
 import UpdatePoem from './components/Poems/UpdatePoem'
+import PublicPoems from './components/Poems/PublicPoems'
 
 class App extends Component {
   constructor (props) {
@@ -131,6 +132,13 @@ class App extends Component {
             path='/updatepoem/:id'
             render={() => (
               <UpdatePoem msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/publicpoems'
+            render={() => (
+              <PublicPoems msgAlert={this.msgAlert} user={user} />
             )}
           />
 

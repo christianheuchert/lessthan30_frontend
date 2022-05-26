@@ -16,7 +16,7 @@ const authenticatedOptions = (
   <Fragment>
     <NavLink to='/poems' className='nav-link'>My Poems</NavLink>
     <NavLink to='/poems/create' className='nav-link'>Create</NavLink>
-    <NavLink to='/wordlist' className='nav-link'> Word List</NavLink>
+    <NavLink to='/publicpoems' className='nav-link'>Public Poems</NavLink>
     <NavLink to='/change-password' style={changePasswordBlockRight} className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' style={signOutBlockRight} className='nav-link'>Sign Out</NavLink>
   </Fragment>

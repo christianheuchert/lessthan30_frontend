@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import WordPanel from './WordPanel'
 import Button from 'react-bootstrap/Button'
 
-// parent of WordPanel and PoemWords
+// parent of WordPanel
 class OnePoem extends Component {
   constructor (props) {
     super(props)
@@ -55,7 +55,6 @@ class OnePoem extends Component {
 
         indexWords(id, user)
         .then((res) => {
-        //   console.log(res.data.words)
           for (let item in res.data.words) {
             this.setState({ words: [...this.state.words, (res.data.words[item])] }) //simple value
           }
@@ -132,11 +131,13 @@ render () {
     <h3>Viewing Poem:</h3>
       <div>
         <div className="poem-header">
-            <h4 class="font-link">{this.state.title}</h4>
+            <h4 className="font-link">{this.state.title}</h4>
             <Button onClick={() => history.push(`/updatepoem/${match.params.id}/`)}>Update</Button>
             <Button onClick={this.deletePoemButton}>Delete</Button>
         </div>
+        
         <div className="poem font-link">{poemJSX}</div>
+
         <WordPanel user={user} msgAlert={msgAlert} poemid={this.state.id} handler={this.handler} getPoemWords={this.getPoemWords}/>
       </div>
     </>

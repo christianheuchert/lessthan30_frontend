@@ -1,6 +1,7 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
+// POEMS POEMS POEMS POEMS POEMS POEMS POEMS POEMS POEMS POEMS POEMS POEMS 
 export const createPoem = (data, user) => {
   return axios({
     method: 'POST',
@@ -56,7 +57,26 @@ export const updatePoem = (data, id, user) => {
     }
   })
 }
+// PUBLIC POEMS PUBLIC POEMS PUBLIC POEMS 
+export const indexPublicPoems = (user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/publicpoems/',
+    headers: {
+      Authorization: `Token ${user.token}`
+    }
+  })
+}
 
+export const indexPublicWords = (user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/publicwords/',
+    headers: {
+      Authorization: `Token ${user.token}`
+    }
+  })
+}
 
 // WORDS WORDS WORDS WORDS WORDS WORDS WORDS WORDS WORDS WORDS 
 
