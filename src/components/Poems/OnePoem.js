@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { showPoem } from '../../api/poem'
+import { showPoem, deletePoem, indexWords, deleteWord } from '../../api/poem'
 import { withRouter } from 'react-router-dom'
 import WordPanel from './WordPanel'
-import { indexWords } from '../../api/poem'
-
+import Button from 'react-bootstrap/Button'
 
 // parent of WordPanel and PoemWords
 class OnePoem extends Component {
   constructor (props) {
     super(props)
-
+    // funtion to pass to child
     this.handler = this.handler.bind(this)
     
     this.state = {
@@ -21,16 +20,13 @@ class OnePoem extends Component {
     }
   }
 
-  //   found from stck overflow: https://stackoverflow.com/questions/35537229/how-can-i-update-the-parents-state-in-react
-  handler() {
-        this.setState(prevState => ({
-        stateChanged: !prevState.stateChanged
-        }))
+  handler(word) {
+    this.setState({words:[...this.state.words, word]})
   }
 
   componentDidMount () {
-        this.getPoemWords()
         const { match, user, msgAlert } = this.props
+        this.getPoemWords(match.params.id, user)
 
         showPoem(match.params.id, user)
         .then((res) => this.setState({
@@ -54,22 +50,66 @@ class OnePoem extends Component {
         })
   }
 
-  getPoemWords () {
-        const { match, user } = this.props
+  getPoemWords (id, user) {
+        // const { match, user } = this.props
 
-        indexWords(match.params.id, user)
+        indexWords(id, user)
         .then((res) => {
         //   console.log(res.data.words)
           for (let item in res.data.words) {
             this.setState({ words: [...this.state.words, (res.data.words[item])] }) //simple value
-            // console.log(res.data.words[item])
           }
       })
   }
 
+deletePoemButton = () => {
+  const { match, user, msgAlert, history } = this.props
+
+  deletePoem(match.params.id, user)
+    .then(() => history.push('/poems'))
+    .then(() => {
+      msgAlert({
+        heading: 'Delete success',
+        message: 'Poem deleted </3',
+        variant: 'success'
+      })
+    })
+    .catch((error) => {
+      msgAlert({
+        heading: 'Delete fail',
+        message: 'Delete error: ' + error.message,
+        variant: 'danger'
+      })
+    })
+}
+
+deleteWordButton = (wordId, index) => {
+  const { match, user, msgAlert } = this.props
+
+  deleteWord(match.params.id, wordId, user)
+    .then( () => {
+        this.state.words.splice(index, 1);
+    })
+    .then(() => {
+      msgAlert({
+        heading: 'Delete success',
+        message: 'Word deleted </3',
+        variant: 'success'
+      })
+    })
+    .catch((error) => {
+      msgAlert({
+        heading: 'Delete fail',
+        message: 'Delete error: ' + error.message,
+        variant: 'danger'
+      })
+    })
+}
+
+
 
 render () {
-  const { user, msgAlert } = this.props
+  const { user, msgAlert, match, history } = this.props
   const { words } = this.state
 
   if (words === null) {
@@ -80,21 +120,24 @@ render () {
     poemJSX = 'No words, add some!'
   } else {
       poemJSX = words.map((word, index) => (
-          <div key={index}>
-            <p>{word.word}</p>
+          <div className="word" key={index}>
+            <span>{word.word}</span>
+            <Button onClick={() => this.deleteWordButton(word.id, index)} className="delete-button">X</Button>
           </div>
       ))
   }
 
   return (
     <>
-      <div>
-        <h3>Viewing Poem:</h3>
+    <h3>Viewing Poem:</h3>
+    <Button onClick={this.deletePoemButton}>Delete</Button>
+    <Button onClick={() => history.push(`/updatepoem/${match.params.id}/`)}>Update</Button>
+      <div class="font-link">
         <h4>{this.state.title}</h4>
         <ul>
           <ul>{poemJSX}</ul>
         </ul>
-        <WordPanel user={user} msgAlert={msgAlert} poemid={this.state.id} handler={this.handler}/>
+        <WordPanel user={user} msgAlert={msgAlert} poemid={this.state.id} handler={this.handler} getPoemWords={this.getPoemWords}/>
       </div>
     </>
   )

@@ -22,7 +22,8 @@ class WordPanel extends Component {
         super(props)
 
         this.state = {
-        wordList: null
+        wordList: null,
+        words: []
         }
     }
 
@@ -45,7 +46,6 @@ class WordPanel extends Component {
                     variant: 'danger'
                 })
             })
-            .then(this.props.handler())
     }
 
     addWord (data) {
@@ -58,6 +58,7 @@ class WordPanel extends Component {
         }
         console.log(poemid)
         createWord(data, poemid, user)
+        .then((res) => this.props.handler(res.data.word))
         // .then((res) => this.setState({
         // title: res.data.poem.title,
         // id: res.data.poem.id,
@@ -87,8 +88,8 @@ class WordPanel extends Component {
     if (wordList === null) {
         return 'Loading...'
     }else{
-        wordListJSX = wordList.map((word) => (
-            <div key={word}>
+        wordListJSX = wordList.map((word, index) => (
+            <div className="word-panel" key={index}>
                     <li onClick={ () => this.addWord(word)}>{word}</li>
             </div>
         ))

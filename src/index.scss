@@ -1,1 +1,38 @@
 @import '~bootstrap/scss/bootstrap';
+
+.font-link {
+    font-family: 'Indie Flower', cursive;
+}
+
+.word {
+    max-width: 200px;
+}
+.delete-button {
+    display: none;
+}
+.word:hover {
+    background-color: yellow;
+    display: inline;
+
+    .delete-button {
+        display: inline;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        text-align: center;
+        margin-left: 5px;
+    }
+}
+.word-panel:hover {
+    max-width: 200px;
+    background-color: greenyellow;
+}
+
+.navbar-custom {
+    background-color: lightcoral;
+    padding: 10px;
+}
+
+#user {
+    color: black;
+}

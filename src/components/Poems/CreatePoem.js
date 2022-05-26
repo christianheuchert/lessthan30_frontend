@@ -46,7 +46,7 @@ class CreatePoem extends Component {
 	render () {
 	return (
 		<>
-			<h4>{this.props.user.username}</h4>
+			<h4>Create Poem</h4>
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Group controlId='title'>
 					<Form.Label >New Poem</Form.Label>
