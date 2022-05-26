@@ -49,12 +49,12 @@ class CreatePoem extends Component {
 			<h4>Create Poem</h4>
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Group controlId='title'>
-					<Form.Label >New Poem</Form.Label>
+					<Form.Label >New Poem: We Recommend You Put your Pen Name on the end!</Form.Label>
 					<Form.Control
 						required
 						name='title'
 						value={this.state.title}
-						placeholder='New Poem Title'
+						placeholder='New Poem Title: - Pen Name '
 						onChange={this.handleChange}
 					/>
 				</Form.Group>
