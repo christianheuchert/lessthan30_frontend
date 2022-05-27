@@ -97,4 +97,4 @@ I began the process with a brainstorm session. I had the idea for a poem writing
 - Poems do not have an Author associated with them!
 - Originally I wanted the list of 30 words to be the same for the entire day for all user but did not complete this goal. 
 - I also wanted poems to only be editable on the day they were created. This would ensure all users poems revolved around the same set of words. 
-- Drag and Drop to rearrange the words. Words have an x and y coordniate but I did not have the time to implement this. 
+- Drag and Drop to rearrange the words. Words have an x and y coordniate but I did not have the time to implement this. Currently, the words cannot be arranged to have a certain number of words on a given line. 

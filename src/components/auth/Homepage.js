@@ -21,7 +21,7 @@ const Welcome = () => (
       <p>Click <em>"Change Password"</em> to update your password</p>
       <p>Click <em>"Sign Out"</em> To End Your &#60;30 Session</p>
       <br></br>
-      <p>Click On Home To See These Instructions Again &#60;30</p>
+      <p>Click On <em>"Home"</em> To See These Instructions Again &#60;30</p>
     </section>
   </>
 )
