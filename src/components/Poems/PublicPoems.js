@@ -45,7 +45,6 @@ wordsForPoem (poemid) {
 
 
 render () {
-const { user, msgAlert } = this.props
   const { poems } = this.state
   if (poems === null) {
     return 'Loading...'
@@ -63,7 +62,8 @@ const { user, msgAlert } = this.props
             {this.wordsForPoem(poem.id)}
         </div>
       </div>
-    ))
+    )).reverse()
+        //.reverse to most recently created at the tops
   }
   return (
     <>

@@ -46,11 +46,9 @@ render () {
   } else {
     // eslint-disable-next-line array-callback-return
     poemJSX = poems.map((poem) => (
-      <div key={poem.id}>
+      <div key={poem.id} className='my-poem'>
         <h3>{poem.title}</h3>
-        <>
-          <Link to={`/poem/${poem.id}`}><button type="button" className="btn btn-light" >View Poem</button></Link>
-        </>
+          <Link to={`/poem/${poem.id}`}><button type="button" className="btn btn-dark">View Poem</button></Link>
       </div>
     ))
   }

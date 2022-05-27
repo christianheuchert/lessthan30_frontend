@@ -54,7 +54,7 @@ class CreatePoem extends Component {
 						required
 						name='title'
 						value={this.state.title}
-						placeholder='New Poem Title: - Pen Name '
+						placeholder='New Poem Title + By Pen Name '
 						onChange={this.handleChange}
 					/>
 				</Form.Group>
