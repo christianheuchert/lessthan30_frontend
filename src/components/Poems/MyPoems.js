@@ -50,7 +50,8 @@ render () {
         <h3>{poem.title}</h3>
           <Link to={`/poem/${poem.id}`}><button type="button" className="btn btn-dark">View Poem</button></Link>
       </div>
-    ))
+    )).reverse()
+    //reverse to have recent at the top
   }
   return (
     <>
