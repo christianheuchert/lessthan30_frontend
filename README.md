@@ -56,9 +56,9 @@ A user must first sign up to sign in. After that the user navigates to create po
 ![Wireframe All](https://i.imgur.com/idePMTS.png)
 
 ### Links to Repositories, Server, Client
-[Client]() 
+[Client](https://christianheuchert.github.io/lessthan30_frontend/poems) 
 >
-[Server]() 
+[Server](https://lessthan30.herokuapp.com) 
 >
 To Install: [Front End Repo](https://github.com/christianheuchert/lessthan30_frontend)
 - Fork and clone repo
